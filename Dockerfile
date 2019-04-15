@@ -3,6 +3,7 @@ FROM ubuntu:16.04
 MAINTAINER vertigo235
 
 ENV OS="Linux"
+ENV BUILD_ENV="1.0.2"
 ENV OSTYPE="linux-gnu"
 ENV JAVA_TOOL_OPTIONS="-Djava.net.preferIPv4Stack=true"
 ENV GPG_TTY=$(tty)
@@ -40,6 +41,13 @@ RUN cd /usr/local/src \
     && wget https://github.com/tianon/gosu/releases/download/1.10/gosu-amd64 \
     && mv gosu-amd64 /usr/local/bin/gosu \
     && chmod +x /usr/local/bin/gosu
+
+# Prusa Build ENV
+RUN mkdr /build-env \
+    && cd /build-env \
+    && mkdir PF-build-env-$BUILD_ENV \
+    && wget https://github.com/mkbel/PF-build-env/releases/download/$BUILD_ENV/PF-build-env-Linux64-$BUILD_ENV.zip \
+    && unzip PF-build-env-Linux64-$BUILD_ENV.zip -d ../PF-build-env-$BUILD_ENV/$OSTYPE
 
 ADD setup.sh /setup.sh
 RUN chmod +x /setup.sh

@@ -25,5 +25,5 @@ steps:
     repo: vertigo235/fw-build
     auto_tag: true
     tags:
-      - dev
       - latest
+      - '1.0.x'

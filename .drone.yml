@@ -14,6 +14,16 @@ steps:
     - shellcheck --version
     - for file in $(find ./root -type f); do echo $file; shellcheck $file; done;
 
+- name: test-build
+  image: docker
+  commands:
+    - docker build --cache-from vertigo235/fw-build
+  when:
+    branch: 
+      exclide: master
+    event:
+      exclude: tag
+    
 - name: build
   image: plugins/docker
   pull: always
@@ -25,3 +35,6 @@ steps:
     repo: vertigo235/fw-build
     auto_tag: true
     cache_from: vertigo235/fw-build
+  when:
+    event:
+      - tag

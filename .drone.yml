@@ -17,7 +17,10 @@ steps:
 - name: test-build
   image: docker
   commands:
-    - docker build . --cache-from vertigo235/fw-build
+    - docker build . 
+    --cache-from vertigo235/fw-build
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
   when:
     branch: 
       exclide: master

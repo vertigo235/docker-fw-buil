@@ -43,7 +43,7 @@ RUN cd /usr/local/src \
     && chmod +x /usr/local/bin/gosu
 
 # Prusa Build ENV
-RUN mkdr /build-env \
+RUN mkdir /build-env \
     && cd /build-env \
     && mkdir PF-build-env-$BUILD_ENV \
     && wget https://github.com/mkbel/PF-build-env/releases/download/$BUILD_ENV/PF-build-env-Linux64-$BUILD_ENV.zip \

@@ -24,3 +24,4 @@ steps:
       from_secret: docker_password
     repo: vertigo235/fw-build
     auto_tag: true
+    cache_from: vertigo235/fw-build

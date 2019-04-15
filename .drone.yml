@@ -39,8 +39,8 @@ steps:
     auto_tag: true
     cache_from: vertigo235/fw-build
   when:
-    event:
-      - tag
+    branch:
+      - master
 
 volumes:
   - name: dockersock

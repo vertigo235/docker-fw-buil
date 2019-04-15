@@ -19,8 +19,8 @@ steps:
   commands:
     - docker build . --cache-from vertigo235/fw-build
   volumes:
-    - name: /var/run/docker.sock
-    - path: /var/run/docker.sock
+    - name: dockersock
+      path: /var/run/docker.sock
   when:
     branch: 
       exclide: master
@@ -41,3 +41,8 @@ steps:
   when:
     event:
       - tag
+
+volumes:
+  - name: dockersock
+    host:
+      path: /var/run/docker.sock

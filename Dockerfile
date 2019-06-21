@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y build-essential \
     zip \
     git \
     srecord \
-    xxd \
+    vim-common \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

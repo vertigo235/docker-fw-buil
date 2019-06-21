@@ -23,7 +23,7 @@ steps:
       path: /var/run/docker.sock
   when:
     branch: 
-      exclide: master
+      exclude: master
     event:
       exclude: tag
     

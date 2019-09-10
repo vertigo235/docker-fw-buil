@@ -14,18 +14,25 @@ steps:
     - shellcheck --version
     - for file in $(find ./root -type f); do echo $file; shellcheck $file; done;
 
-- name: test-build
-  image: docker
-  commands:
-    - docker build . --cache-from vertigo235/fw-build
-  volumes:
-    - name: dockersock
-      path: /var/run/docker.sock
+- name: dev-build
+  image: plugins/docker
+  pull: always
+  settings:
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    repo: vertigo235/fw-build
+    tags: 
+        #- ${DRONE_TAG:-${DRONE_BRANCH}}
+        - ${DRONE_TAG}
+    cache_from: vertigo235/fw-build
   when:
-    branch: 
-      exclude: master
+    branch:
+      exclude:
+        - master
     event:
-      exclude: tag
+      - push
     
 - name: build
   image: plugins/docker
@@ -41,8 +48,3 @@ steps:
   when:
     branch:
       - master
-
-volumes:
-  - name: dockersock
-    host:
-      path: /var/run/docker.sock

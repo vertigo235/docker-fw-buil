@@ -27,10 +27,10 @@ steps:
         #- ${DRONE_TAG:-${DRONE_BRANCH}}
         - ${DRONE_TAG}
     cache_from: vertigo235/fw-build
-  branches:
-    exclude:
-      - master
   when:
+    branch:
+      exclude:
+        - master
     event:
       - push
     

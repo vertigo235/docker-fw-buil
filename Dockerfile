@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 MAINTAINER vertigo235
 
 ENV OS="Linux"
-ENV BUILD_ENV="1.0.2"
+ENV BUILD_ENV="1.0.6"
 ENV OSTYPE="linux-gnu"
 ENV JAVA_TOOL_OPTIONS="-Djava.net.preferIPv4Stack=true"
 ENV GPG_TTY=$(tty)
@@ -46,11 +46,11 @@ RUN cd /usr/local/src \
     && chmod +x /usr/local/bin/gosu
 
 # Prusa Build ENV
-RUN mkdir /build-env \
-    && cd /build-env \
-    && mkdir PF-build-env-$BUILD_ENV/ \
-    && wget https://github.com/mkbel/PF-build-env/releases/download/$BUILD_ENV/PF-build-env-Linux64-$BUILD_ENV.zip \
-    && unzip PF-build-env-Linux64-$BUILD_ENV.zip -d PF-build-env-$BUILD_ENV/$OSTYPE
+#RUN mkdir /build-env \
+#    && cd /build-env \
+#    && mkdir PF-build-env-$BUILD_ENV/ \
+#    && wget https://github.com/mkbel/PF-build-env/releases/download/$BUILD_ENV/PF-build-env-Linux64-$BUILD_ENV.zip \
+#    && unzip PF-build-env-Linux64-$BUILD_ENV.zip -d PF-build-env-$BUILD_ENV/$OSTYPE
 
 ADD setup.sh /setup.sh
 RUN chmod +x /setup.sh

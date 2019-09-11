@@ -24,8 +24,8 @@ steps:
       from_secret: docker_password
     repo: vertigo235/fw-build
     tags: 
-        #- ${DRONE_TAG:-${DRONE_BRANCH}}
-        - ${DRONE_BRANCH}
+        - '${DRONE_BRANCH}'
+        - '${DRONE_BRANCH}-${DRONE_BUILD_NUMBER}'
     cache_from: vertigo235/fw-build
   when:
     branch:
@@ -44,6 +44,7 @@ steps:
       from_secret: docker_password
     repo: vertigo235/fw-build
     tags:
+      - latest
       - '1'
       - '1.2'
       - '1.2.${DRONE_BUILD_NUMBER}'

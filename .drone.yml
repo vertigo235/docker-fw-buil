@@ -25,7 +25,7 @@ steps:
     repo: vertigo235/fw-build
     tags: 
         - '${DRONE_BRANCH}'
-        - '${DRONE_BRANCH}-${DRONE_COMMIT}'
+        - '${DRONE_BRANCH}-${DRONE_COMMIT:0:6}'
     cache_from: vertigo235/fw-build
   when:
     branch:

@@ -46,8 +46,8 @@ steps:
     tags:
       - latest
       - '1'
-      - '1.2'
-      - '1.2.${DRONE_BUILD_NUMBER}'
+      - '1.3'
+      - '1.3.${DRONE_BUILD_NUMBER}'
     #auto_tag: true
     cache_from: vertigo235/fw-build
   when:

@@ -26,6 +26,9 @@ RUN apt-get update && apt-get install -y build-essential \
     vim-common \
     gawk \
     curl \
+    doxygen \
+    graphviz \
+    plantuml \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

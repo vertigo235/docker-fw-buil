@@ -22,3 +22,4 @@ if [ $result -ne 0 ] ; then
     sudo adduser devuser sudo
     echo "%sudo ALL=NOPASSWD: ALL" >> /etc/sudoers
 fi
+/bin/bash

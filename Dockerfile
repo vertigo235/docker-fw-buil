@@ -9,27 +9,23 @@ ENV JAVA_TOOL_OPTIONS="-Djava.net.preferIPv4Stack=true"
 ENV GPG_TTY=$(tty)
 ENV TERM="xterm"
 
-RUN apt-get update && apt-get install -y build-essential \
-    sudo \
+RUN apt-get update && apt-get install -y \
     cmake \
-    libboost-all-dev \
-    libprotobuf-dev \
-    protobuf-compiler \
     clang-3.6 \
     clang-format-3.6 \
-    ninja-build \
     wget \
     unzip \
     zip \
     git \
-    srecord \
-    vim-common \
     gawk \
     curl \
     doxygen \
     graphviz \
     plantuml \
     python3 \
+    bash \
+    build-essential \
+    vim-common \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

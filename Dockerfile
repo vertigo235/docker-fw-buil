@@ -34,20 +34,20 @@ RUN apt-get update && apt-get install -y build-essential \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # cppcheck
-RUN cd /usr/local/src \
-    && wget https://github.com/danmar/cppcheck/archive/1.79.tar.gz \
-    && tar xvf 1.79.tar.gz \
-    && cd cppcheck-1.79 \
-    && mkdir build \
-    && cd build \
-    && cmake .. \
-    && make install \
-    && cd ../.. && rm -rf cppcheck*
+#RUN cd /usr/local/src \
+#    && wget https://github.com/danmar/cppcheck/archive/1.79.tar.gz \
+#    && tar xvf 1.79.tar.gz \
+#    && cd cppcheck-1.79 \
+#    && mkdir build \
+#    && cd build \
+#    && cmake .. \
+#    && make install \
+#    && cd ../.. && rm -rf cppcheck*
 
-RUN cd /usr/local/src \
-    && wget https://github.com/tianon/gosu/releases/download/1.10/gosu-amd64 \
-    && mv gosu-amd64 /usr/local/bin/gosu \
-    && chmod +x /usr/local/bin/gosu
+#RUN cd /usr/local/src \
+#    && wget https://github.com/tianon/gosu/releases/download/1.10/gosu-amd64 \
+#    && mv gosu-amd64 /usr/local/bin/gosu \
+#    && chmod +x /usr/local/bin/gosu
 
 # Prusa Build ENV
 #RUN mkdir /build-env \

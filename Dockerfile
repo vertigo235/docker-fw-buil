@@ -40,7 +40,4 @@ RUN mkdir /build-env \
     && wget https://github.com/mkbel/PF-build-env/releases/download/$BUILD_ENV/PF-build-env-Linux64-$BUILD_ENV.zip \
     && unzip PF-build-env-Linux64-$BUILD_ENV.zip -d PF-build-env-$BUILD_ENV/
 
-ADD setup.sh /setup.sh
-RUN chmod +x /setup.sh
-
 CMD ["/bin/bash"]

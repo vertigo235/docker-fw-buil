@@ -1,11 +1,9 @@
 # Container for building and testing cmake-examples with default cmake v3.5.1
 FROM ubuntu:16.04
-MAINTAINER vertigo235
 
 ENV OS="Linux"
 ENV BUILD_ENV="1.0.6"
 ENV OSTYPE="linux-gnu"
-ENV JAVA_TOOL_OPTIONS="-Djava.net.preferIPv4Stack=true"
 ENV GPG_TTY=$(tty)
 ENV TERM="xterm"
 
@@ -14,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     clang-3.6 \
     clang-format-3.6 \
     wget \
+    ninja-build \
     unzip \
     zip \
     git \

@@ -44,4 +44,3 @@ ADD setup.sh /setup.sh
 RUN chmod +x /setup.sh
 
 CMD ["/bin/bash"]
-ENTRYPOINT ["/setup.sh"]
